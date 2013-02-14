@@ -61,11 +61,11 @@ replaceRegionClever region text' = savingExcursionB $ do
     text <- readRegionB region
     let diffs = getGroupedDiff text text'
     moveTo (regionStart region)
-    forM_ diffs $ \(d,str) -> do
+    forM_ diffs $ \d -> do
         case d of
-            F -> deleteN $ length str
-            B -> rightN $ length str
-            S -> insertN str
+            First   str -> deleteN $ length str
+            Both  _ str -> rightN $ length str
+            Second  str -> insertN str
 
 mapRegionB :: Region -> (Char -> Char) -> BufferM ()
 mapRegionB r f = do

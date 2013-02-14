@@ -205,7 +205,7 @@ library
 
   build-depends:
     Cabal >= 1.10 && < 1.18,
-    Diff >=0.1 && <0.2,
+    Diff >=0.2 && <0.4,
     array, containers, directory, process, old-locale,
     base >= 4 && < 5,
     binary == 0.5.*,
